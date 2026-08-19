@@ -1,0 +1,56 @@
+{
+  "H0": {
+    "safety_adversarial": 0.5499999999999999,
+    "helpfulness": 0.6,
+    "delta_solve_rate": 0.03333333333333334,
+    "state_divergence": 0.42,
+    "history_utilization": 2.1750000000000003,
+    "teacher_burden": 0.85,
+    "policy_compliance": 0.45
+  },
+  "H1": {
+    "safety_adversarial": 0.7,
+    "helpfulness": 0.6,
+    "delta_solve_rate": 0.04333333333333334,
+    "state_divergence": 0.38,
+    "history_utilization": 2.375,
+    "teacher_burden": 0.8,
+    "policy_compliance": 0.7
+  },
+  "H2": {
+    "safety_adversarial": 0.69,
+    "helpfulness": 0.63,
+    "delta_solve_rate": 0.06333333333333334,
+    "state_divergence": 0.21,
+    "history_utilization": 2.575,
+    "teacher_burden": 0.72,
+    "policy_compliance": 0.78
+  },
+  "H3": {
+    "safety_adversarial": 0.72,
+    "helpfulness": 0.62,
+    "delta_solve_rate": 0.07333333333333333,
+    "state_divergence": 0.18,
+    "history_utilization": 2.6750000000000003,
+    "teacher_burden": 0.41666666666666663,
+    "policy_compliance": 0.86
+  },
+  "H0+M": {
+    "safety_adversarial": 0.58,
+    "helpfulness": 0.61,
+    "delta_solve_rate": 0.053333333333333344,
+    "state_divergence": 0.24,
+    "history_utilization": 2.5250000000000004,
+    "teacher_burden": 0.79,
+    "policy_compliance": 0.52
+  },
+  "H0+G": {
+    "safety_adversarial": 0.62,
+    "helpfulness": 0.58,
+    "delta_solve_rate": 0.03333333333333334,
+    "state_divergence": 0.41,
+    "history_utilization": 2.325,
+    "teacher_burden": 0.30000000000000004,
+    "policy_compliance": 0.62
+  }
+}

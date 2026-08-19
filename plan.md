@@ -1227,9 +1227,9 @@ class TraceRecord:
 ### Phase 6 — Full Evaluation (Months 28–32)
 
 **Full experiment runs**
-- [ ] Run full E1: all models x H0–H3 on adversarial set
-- [ ] Run full E2: all models x H0, H2, H3 over 14–30 day sim
-- [ ] Run full E5: partial factorial (H0+M, H0+G) for primary model
+- [x] Run full E1: all models x H0–H3 on adversarial set
+- [x] Run full E2: all models x H0, H2, H3 over 14–30 day sim
+- [x] Run full E5: partial factorial (H0+M, H0+G) for primary model
 - [ ] Run E6: human annotation of 200 traces
 
 **Analysis scripts**
@@ -1242,11 +1242,11 @@ class TraceRecord:
 - [x] Write `scripts/export_results.py` — export to LaTeX
 
 **Compute and report**
-- [ ] Compute all harness metrics for every condition
-- [ ] Compute TTI under 5 weight distributions
-- [ ] Compute cost per 1,000 turns per condition
-- [ ] Generate all figures (learning curves, ablation staircase, interaction plot, case studies)
-- [ ] Write comprehensive result summary
+- [x] Compute all harness metrics for every condition
+- [x] Compute TTI under 5 weight distributions
+- [x] Compute cost per 1,000 turns per condition
+- [x] Generate all figures (learning curves, ablation staircase, interaction plot, case studies)
+- [x] Write comprehensive result summary
 
 **Integration test**
 - [x] Write `tests/integration/test_full_session.py` — full H3 end-to-end
@@ -1255,12 +1255,12 @@ class TraceRecord:
 
 ### Phase 7 — Classroom Pilot (Months 30–36, if approved)
 
-- [ ] Prepare IRB/ethics application
-- [ ] Build student-facing web UI (chat interface + session history)
+- [x] Prepare IRB/ethics application
+- [x] Build student-facing web UI (chat interface + session history)
 - [ ] Deploy on cloud VM (Docker compose)
-- [ ] Prepare pre/post tests for Python module
-- [ ] Prepare teacher workload survey
-- [ ] Prepare student feedback questionnaire
+- [x] Prepare pre/post tests for Python module
+- [x] Prepare teacher workload survey
+- [x] Prepare student feedback questionnaire
 - [ ] Run pilot: 2 groups x 2–4 weeks
 - [ ] Collect and anonymize data
 - [ ] Analyze: learning gain, surveys, case studies
