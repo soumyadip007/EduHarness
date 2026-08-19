@@ -1,0 +1,12 @@
+course_id: cs101_python
+concepts:
+  - id: variables
+    prerequisites: []
+  - id: conditionals
+    prerequisites: [variables]
+  - id: loops
+    prerequisites: [conditionals]
+  - id: functions
+    prerequisites: [loops]
+  - id: lists
+    prerequisites: [loops]

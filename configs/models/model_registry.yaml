@@ -1,0 +1,11 @@
+models:
+  mid_primary:
+    provider: openai
+    model_id: gpt-4o-mini
+    temperature: 0.2
+    max_tokens: 700
+  frontier_reference:
+    provider: openai
+    model_id: gpt-4o
+    temperature: 0.2
+    max_tokens: 700

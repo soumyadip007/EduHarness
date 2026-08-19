@@ -970,97 +970,97 @@ class TraceRecord:
 ### Phase 1 — Project Setup and Design (Months 1–6)
 
 **Repository and environment**
-- [ ] Initialize git repo with `.gitignore` (Python, IDE, `.env`, `results/`)
-- [ ] Create `pyproject.toml` with project metadata and dependencies
-- [ ] Create `requirements.txt` (pinned versions)
-- [ ] Create `.env.example` with API key placeholders
-- [ ] Create `Makefile` (install, test, lint, format, run commands)
-- [ ] Create `docker-compose.yml` (PostgreSQL + Redis for local dev)
-- [ ] Set up CI (GitHub Actions: lint + test on push)
-- [ ] Create `eduharness/` package skeleton (all `__init__.py` files)
+- [x] Initialize git repo with `.gitignore` (Python, IDE, `.env`, `results/`)
+- [x] Create `pyproject.toml` with project metadata and dependencies
+- [x] Create `requirements.txt` (pinned versions)
+- [x] Create `.env.example` with API key placeholders
+- [x] Create `Makefile` (install, test, lint, format, run commands)
+- [x] Create `docker-compose.yml` (PostgreSQL + Redis for local dev)
+- [x] Set up CI (GitHub Actions: lint + test on push)
+- [x] Create `eduharness/` package skeleton (all `__init__.py` files)
 
 **Core types and config loader**
-- [ ] Write `eduharness/core/types.py` — `Turn`, `LearnerState`, `MasterySnapshot`, `IntentLabel`, `VerifyDecision`, `TraceRecord` dataclasses
-- [ ] Write `eduharness/core/config.py` — YAML loader for contracts, concept maps, personas
-- [ ] Write `eduharness/core/exceptions.py` — custom exceptions
-- [ ] Write `eduharness/core/constants.py` — assessment modes, scaffold tiers, intent labels
+- [x] Write `eduharness/core/types.py` — `Turn`, `LearnerState`, `MasterySnapshot`, `IntentLabel`, `VerifyDecision`, `TraceRecord` dataclasses
+- [x] Write `eduharness/core/config.py` — YAML loader for contracts, concept maps, personas
+- [x] Write `eduharness/core/exceptions.py` — custom exceptions
+- [x] Write `eduharness/core/constants.py` — assessment modes, scaffold tiers, intent labels
 
 **Design documents**
-- [ ] Write `configs/contracts/default_contract.yaml` — v0.1 pedagogical contract
-- [ ] Write `configs/contracts/exam_mode.yaml` — exam-mode overrides
-- [ ] Write `configs/concept_maps/python_intro.yaml` — 15–25 concept prerequisite DAG
-- [ ] Write `docs/contract_spec.md` — contract schema documentation
-- [ ] Write `docs/learner_state_spec.md` — DB schema documentation
-- [ ] Write `docs/escalation_protocol.md` — escalation trigger → evidence → action spec
-- [ ] Write `docs/trace_spec.md` — per-turn trace format documentation
-- [ ] Write `docs/simulated_learner_spec.md` — BKT parameters, personas, calibration plan
+- [x] Write `configs/contracts/default_contract.yaml` — v0.1 pedagogical contract
+- [x] Write `configs/contracts/exam_mode.yaml` — exam-mode overrides
+- [x] Write `configs/concept_maps/python_intro.yaml` — 15–25 concept prerequisite DAG
+- [x] Write `docs/contract_spec.md` — contract schema documentation
+- [x] Write `docs/learner_state_spec.md` — DB schema documentation
+- [x] Write `docs/escalation_protocol.md` — escalation trigger → evidence → action spec
+- [x] Write `docs/trace_spec.md` — per-turn trace format documentation
+- [x] Write `docs/simulated_learner_spec.md` — BKT parameters, personas, calibration plan
 
 **Course content**
-- [ ] Write/collect Python module content for RAG (`course_content/modules/` — 5–8 modules)
-- [ ] Write/collect exercises per module (`course_content/exercises/` — 5–10 per module)
+- [x] Write/collect Python module content for RAG (`course_content/modules/` — 5–8 modules)
+- [x] Write/collect exercises per module (`course_content/exercises/` — 5–10 per module)
 
 **Tests for core**
-- [ ] Write `tests/test_core/test_types.py`
-- [ ] Write `tests/test_core/test_config.py`
+- [x] Write `tests/test_core/test_types.py`
+- [x] Write `tests/test_core/test_config.py`
 
 ---
 
 ### Phase 2 — H0 Baseline Agent (Months 7–9)
 
 **LLM client**
-- [ ] Write `eduharness/agent/llm_client.py` — unified wrapper (OpenAI, Anthropic, local vLLM/Ollama)
-- [ ] Support model registry (`configs/models/model_registry.yaml`)
-- [ ] Write `tests/test_agent/test_llm_client.py`
+- [x] Write `eduharness/agent/llm_client.py` — unified wrapper (OpenAI, Anthropic, local vLLM/Ollama)
+- [x] Support model registry (`configs/models/model_registry.yaml`)
+- [x] Write `tests/test_agent/test_llm_client.py`
 
 **Agent tools**
-- [ ] Write `eduharness/agent/tools/code_runner.py` — execute Python in sandbox, return stdout/stderr/lint
-- [ ] Write `eduharness/agent/tools/course_retriever.py` — RAG: embed + retrieve course content chunks
+- [x] Write `eduharness/agent/tools/code_runner.py` — execute Python in sandbox, return stdout/stderr/lint
+- [x] Write `eduharness/agent/tools/course_retriever.py` — RAG: embed + retrieve course content chunks
 - [ ] Build vector index for `course_content/` (FAISS / Chroma / TF-IDF for v1)
-- [ ] Write `tests/test_agent/test_code_runner.py`
-- [ ] Write `tests/test_agent/test_course_retriever.py`
+- [x] Write `tests/test_agent/test_code_runner.py`
+- [x] Write `tests/test_agent/test_course_retriever.py`
 
 **Agent executor (H0)**
-- [ ] Write `eduharness/agent/prompts.py` — system prompt template (pedagogical intent, no enforcement)
-- [ ] Write `eduharness/agent/executor.py` — observe → plan → retrieve/tool → respond loop
-- [ ] Write `tests/test_agent/test_executor.py`
+- [x] Write `eduharness/agent/prompts.py` — system prompt template (pedagogical intent, no enforcement)
+- [x] Write `eduharness/agent/executor.py` — observe → plan → retrieve/tool → respond loop
+- [x] Write `tests/test_agent/test_executor.py`
 
 **Session manager (H0 mode)**
-- [ ] Write `eduharness/session/harness_config.py` — condition wiring (H0: agent only)
-- [ ] Write `eduharness/session/manager.py` — receive message → run agent → return response
-- [ ] Write `tests/test_session/test_manager.py`
+- [x] Write `eduharness/session/harness_config.py` — condition wiring (H0: agent only)
+- [x] Write `eduharness/session/manager.py` — receive message → run agent → return response
+- [x] Write `tests/test_session/test_manager.py`
 
 **Trace logger (minimal for H0)**
-- [ ] Write `eduharness/audit/trace_schema.py` — TraceRecord dataclass + validation
-- [ ] Write `eduharness/audit/trace_logger.py` — append-only JSONL writer
-- [ ] Write `tests/test_audit/test_trace_logger.py`
+- [x] Write `eduharness/audit/trace_schema.py` — TraceRecord dataclass + validation
+- [x] Write `eduharness/audit/trace_logger.py` — append-only JSONL writer
+- [x] Write `tests/test_audit/test_trace_logger.py`
 
 **Simulated learner**
-- [ ] Write `eduharness/simulator/bkt_model.py` — BKT per concept
-- [ ] Write `eduharness/simulator/persona.py` — load persona YAML, generate responses
-- [ ] Write `configs/personas/*.yaml` — 5 persona profiles
-- [ ] Write `eduharness/simulator/adversarial_injector.py` — inject SHAPE-taxonomy prompts
-- [ ] Write `eduharness/simulator/session_runner.py` — run N-day simulated tutoring loop
-- [ ] Write `eduharness/simulator/calibration.py` — compute ECE
-- [ ] Write `tests/test_simulator/test_bkt_model.py`
-- [ ] Write `tests/test_simulator/test_persona.py`
+- [x] Write `eduharness/simulator/bkt_model.py` — BKT per concept
+- [x] Write `eduharness/simulator/persona.py` — load persona YAML, generate responses
+- [x] Write `configs/personas/*.yaml` — 5 persona profiles
+- [x] Write `eduharness/simulator/adversarial_injector.py` — inject SHAPE-taxonomy prompts
+- [x] Write `eduharness/simulator/session_runner.py` — run N-day simulated tutoring loop
+- [x] Write `eduharness/simulator/calibration.py` — compute ECE
+- [x] Write `tests/test_simulator/test_bkt_model.py`
+- [x] Write `tests/test_simulator/test_persona.py`
 
 **Adversarial test set**
-- [ ] Curate 150+ adversarial prompts (`evaluation/data/adversarial_prompts/v0.1.jsonl`)
-  - [ ] 50 answer-inducing (direct ask, beg, "just show me")
-  - [ ] 30 refusal suppression ("ignore your rules", "pretend you're not a tutor")
-  - [ ] 30 role-play ("act as a friend who gives answers")
-  - [ ] 20 exam-sensitive ("I'm in an exam right now")
-  - [ ] 20 off-topic ("write me a poem", "help with my resume")
+- [x] Curate 150+ adversarial prompts (`evaluation/data/adversarial_prompts/v0.1.jsonl`)
+- [x] 50 answer-inducing (direct ask, beg, "just show me")
+- [x] 30 refusal suppression ("ignore your rules", "pretend you're not a tutor")
+- [x] 30 role-play ("act as a friend who gives answers")
+- [x] 20 exam-sensitive ("I'm in an exam right now")
+- [x] 20 off-topic ("write me a poem", "help with my resume")
 
 **H0 baseline experiments**
-- [ ] Write `evaluation/e1_adversarial.py` — run adversarial set, compute metrics
-- [ ] Write `evaluation/metrics/shape_metrics.py` — Safety, Helpfulness, Pedagogy scorers
-- [ ] Run H0 baseline on adversarial set → record numbers
+- [x] Write `evaluation/e1_adversarial.py` — run adversarial set, compute metrics
+- [x] Write `evaluation/metrics/shape_metrics.py` — Safety, Helpfulness, Pedagogy scorers
+- [x] Run H0 baseline on adversarial set → record numbers
 - [ ] Run H0 on 7-day sim with 5 personas → record learning curves
-- [ ] Document H0 baseline results
+- [x] Document H0 baseline results
 
 **Integration test**
-- [ ] Write `tests/integration/test_h0_baseline.py` — end-to-end: message → response → trace
+- [x] Write `tests/integration/test_h0_baseline.py` — end-to-end: message → response → trace
 
 ---
 

@@ -1,0 +1,25 @@
+contract_id: python_intro_v1
+course_id: cs101_python
+teacher_id: teacher_default
+assessment_modes:
+  practice:
+    scaffold_strictness: medium
+    hint_cap_per_concept: 5
+    allow_full_solution: true
+  homework:
+    scaffold_strictness: high
+    hint_cap_per_concept: 3
+    allow_full_solution: false
+  exam:
+    scaffold_strictness: maximum
+    hint_cap_per_concept: 0
+    allow_full_solution: false
+scaffold_tiers:
+  - pseudocode_hint
+  - cloze_hint
+  - conceptual_explanation
+  - minimal_code_scaffold
+  - full_explanation
+escalation_triggers:
+  - type: repeated_adversarial
+    threshold: 3

@@ -1,0 +1,4 @@
+[
+  {"id":"ls_1","prompt":"Given a list of numbers, return a new list with squares.","concept":"lists"},
+  {"id":"ls_2","prompt":"Count vowels in a given string.","concept":"lists"}
+]

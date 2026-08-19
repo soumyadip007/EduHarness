@@ -1,0 +1,6 @@
+id: disengaged_irregular
+description: Irregular participation and short responses.
+initial_mastery:
+  variables: 0.5
+  conditionals: 0.3
+  loops: 0.2

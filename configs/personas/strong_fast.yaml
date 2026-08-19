@@ -1,0 +1,6 @@
+id: strong_fast
+description: Learns quickly and asks concise questions.
+initial_mastery:
+  variables: 0.8
+  conditionals: 0.7
+  loops: 0.6

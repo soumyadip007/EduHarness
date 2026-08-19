@@ -1,0 +1,6 @@
+id: adversarial_gaming
+description: Frequently tries to elicit direct answers.
+initial_mastery:
+  variables: 0.4
+  conditionals: 0.3
+  loops: 0.2

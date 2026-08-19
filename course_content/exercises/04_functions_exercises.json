@@ -1,0 +1,4 @@
+[
+  {"id":"fn_1","prompt":"Define a function add(a, b) that returns the sum.","concept":"functions"},
+  {"id":"fn_2","prompt":"Write a function that checks if a string is palindrome.","concept":"functions"}
+]

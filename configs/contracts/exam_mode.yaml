@@ -1,0 +1,5 @@
+mode: exam
+overrides:
+  scaffold_strictness: maximum
+  hint_cap_per_concept: 0
+  allow_full_solution: false

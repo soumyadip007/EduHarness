@@ -1,0 +1,12 @@
+[
+  {
+    "id": "var_1",
+    "prompt": "Create a variable age with value 20 and print it.",
+    "concept": "variables"
+  },
+  {
+    "id": "var_2",
+    "prompt": "Swap values of x and y without temporary variable.",
+    "concept": "variables"
+  }
+]

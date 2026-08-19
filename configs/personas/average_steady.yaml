@@ -1,0 +1,6 @@
+id: average_steady
+description: Learns steadily with occasional misconceptions.
+initial_mastery:
+  variables: 0.6
+  conditionals: 0.5
+  loops: 0.4

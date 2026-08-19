@@ -1,0 +1,37 @@
+version: "3.9"
+
+services:
+  postgres:
+    image: postgres:16
+    container_name: eduharness-postgres
+    environment:
+      POSTGRES_DB: eduharness
+      POSTGRES_USER: eduharness
+      POSTGRES_PASSWORD: eduharness
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+  redis:
+    image: redis:7
+    container_name: eduharness-redis
+    ports:
+      - "6379:6379"
+
+  api:
+    build: .
+    container_name: eduharness-api
+    command: uvicorn api.main:app --host 0.0.0.0 --port 8000 --reload
+    env_file:
+      - .env.example
+    ports:
+      - "8000:8000"
+    depends_on:
+      - postgres
+      - redis
+    volumes:
+      - ./:/app
+
+volumes:
+  pgdata:

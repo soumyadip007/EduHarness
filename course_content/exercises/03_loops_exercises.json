@@ -1,0 +1,4 @@
+[
+  {"id":"loop_1","prompt":"Print numbers from 1 to 10 using a for loop.","concept":"loops"},
+  {"id":"loop_2","prompt":"Count how many even numbers are in a list.","concept":"loops"}
+]

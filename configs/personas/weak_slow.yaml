@@ -1,0 +1,6 @@
+id: weak_slow
+description: Needs frequent scaffolding and repetition.
+initial_mastery:
+  variables: 0.3
+  conditionals: 0.2
+  loops: 0.1

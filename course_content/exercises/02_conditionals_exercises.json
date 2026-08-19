@@ -1,0 +1,4 @@
+[
+  {"id":"cond_1","prompt":"Write an if-else statement to print 'pass' if marks >= 40 else 'fail'.","concept":"conditionals"},
+  {"id":"cond_2","prompt":"Use if-elif-else to classify a number as negative, zero, or positive.","concept":"conditionals"}
+]
