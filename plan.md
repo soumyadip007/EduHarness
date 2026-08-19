@@ -1231,6 +1231,8 @@ class TraceRecord:
 - [x] Run full E2: all models x H0, H2, H3 over 14–30 day sim
 - [x] Run full E5: partial factorial (H0+M, H0+G) for primary model
 - [ ] Run E6: human annotation of 200 traces
+  - [x] Prepared 200-trace annotation pack (`evaluation/data/results/e6_annotation_tasks.jsonl`)
+  - [x] Added annotation UI (`apps/annotation_ui_streamlit.py`) and summary script (`evaluation/analyze_annotation.py`)
 
 **Analysis scripts**
 - [x] Write `evaluation/metrics/tti.py` — TTI composite with configurable weights
@@ -1258,13 +1260,17 @@ class TraceRecord:
 - [x] Prepare IRB/ethics application
 - [x] Build student-facing web UI (chat interface + session history)
 - [ ] Deploy on cloud VM (Docker compose)
+  - [x] Deployment playbook prepared (`deploy/cloud_vm_deployment_playbook.md`)
 - [x] Prepare pre/post tests for Python module
 - [x] Prepare teacher workload survey
 - [x] Prepare student feedback questionnaire
 - [ ] Run pilot: 2 groups x 2–4 weeks
 - [ ] Collect and anonymize data
+  - [x] Anonymization pipeline prepared and verified on sample data (`scripts/anonymize_pilot_data.py`)
 - [ ] Analyze: learning gain, surveys, case studies
+  - [x] Analysis script prepared and verified on sample pilot data (`scripts/analyze_pilot_results.py`)
 - [ ] Compare simulated proxy vs real learning gain
+  - [x] Comparison script prepared and verified (`scripts/compare_simulated_vs_real.py`)
 
 ---
 
