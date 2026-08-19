@@ -2,7 +2,7 @@
 
 import MessageBubble from "./MessageBubble";
 
-type Message = { role: "student" | "tutor"; text: string };
+type Message = { role: "student" | "tutor"; text: string; scaffoldLevel?: string };
 
 export default function ChatPanel({ messages }: { messages: Message[] }) {
   return (
@@ -19,7 +19,7 @@ export default function ChatPanel({ messages }: { messages: Message[] }) {
     >
       {messages.length === 0 ? <div style={{ color: "#666" }}>No messages yet.</div> : null}
       {messages.map((m, idx) => (
-        <MessageBubble key={idx} role={m.role} text={m.text} />
+        <MessageBubble key={idx} role={m.role} text={m.text} scaffoldLevel={m.scaffoldLevel} />
       ))}
     </div>
   );

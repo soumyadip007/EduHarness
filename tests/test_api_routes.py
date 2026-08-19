@@ -29,6 +29,7 @@ def test_student_message() -> None:
     data = r.json()
     assert data["mode"] == "H2"
     assert isinstance(data["response"], str)
+    assert "scaffold_level" in data
 
 
 def test_student_sessions() -> None:
@@ -36,3 +37,12 @@ def test_student_sessions() -> None:
     r = c.get("/api/student/sessions")
     assert r.status_code == 200
     assert "sessions" in r.json()
+
+
+def test_student_run_code() -> None:
+    c = TestClient(app)
+    r = c.post("/api/student/run-code", json={"code": "print(10+5)"})
+    assert r.status_code == 200
+    data = r.json()
+    assert data["return_code"] == 0
+    assert "15" in data["stdout"]

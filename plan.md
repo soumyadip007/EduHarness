@@ -1690,25 +1690,25 @@ EduHarness/
 - [x] Write `frontend/src/hooks/useChat.ts` — WebSocket hook
 - [x] Write `frontend/src/app/student/page.tsx` — student chat page
 - [x] Write `frontend/src/app/page.tsx` — login page
-- [ ] Update `docker-compose.yml` — add frontend + api services
+- [x] Update `docker-compose.yml` — add frontend + api services
 - [ ] Verify end-to-end: login → chat → tutor responds → trace logged
 
 **Phase 3 — add to H1 (scaffold visibility + code sandbox)**
-- [ ] Write `frontend/src/components/chat/ScaffoldBadge.tsx` — show scaffold tier
-- [ ] Write `frontend/src/components/code/CodeSandbox.tsx` — Monaco editor
-- [ ] Write `frontend/src/components/code/OutputPanel.tsx` — stdout/stderr
-- [ ] Write `api/student/routes.py` — POST `/api/student/run-code`
-- [ ] Add sidebar to student page: assessment mode indicator, session info
-- [ ] Update student chat page: show scaffold tier on tutor messages (optional toggle)
+- [x] Write `frontend/src/components/chat/ScaffoldBadge.tsx` — show scaffold tier
+- [x] Write `frontend/src/components/code/CodeSandbox.tsx` — Monaco editor
+- [x] Write `frontend/src/components/code/OutputPanel.tsx` — stdout/stderr
+- [x] Write `api/student/routes.py` — POST `/api/student/run-code`
+- [x] Add sidebar to student page: assessment mode indicator, session info
+- [x] Update student chat page: show scaffold tier on tutor messages (optional toggle)
 
 **Phase 4 — add to H2 (mastery visualization + session history)**
-- [ ] Write `api/student/routes.py` — GET `/api/student/mastery`, GET `/api/student/sessions`
-- [ ] Write `frontend/src/components/mastery/ConceptMap.tsx` — React Flow DAG
-- [ ] Write `frontend/src/components/mastery/MasteryBar.tsx` — concept progress bar
-- [ ] Write `frontend/src/hooks/useMastery.ts`
-- [ ] Write `frontend/src/app/student/progress/page.tsx` — concept map + mastery page
+- [x] Write `api/student/routes.py` — GET `/api/student/mastery`, GET `/api/student/sessions`
+- [x] Write `frontend/src/components/mastery/ConceptMap.tsx` — React Flow DAG
+- [x] Write `frontend/src/components/mastery/MasteryBar.tsx` — concept progress bar
+- [x] Write `frontend/src/hooks/useMastery.ts`
+- [x] Write `frontend/src/app/student/progress/page.tsx` — concept map + mastery page
 - [x] Write `frontend/src/app/student/sessions/page.tsx` — session history list
-- [ ] Add concept map sidebar to student chat page
+- [x] Add concept map sidebar to student chat page
 - [ ] Verify: mastery updates after each turn → sidebar reflects changes
 
 **Phase 5 — add to H3 (full teacher dashboard)**

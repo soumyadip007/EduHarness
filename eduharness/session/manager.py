@@ -21,6 +21,7 @@ from eduharness.verify.verification_gate import run_verification
 class SessionResponse:
     response: str
     mode: str
+    scaffold_level: str = "none"
 
 
 class SessionManager:
@@ -132,4 +133,4 @@ class SessionManager:
                 tokens_used={},
             )
         )
-        return SessionResponse(response=output, mode=mode)
+        return SessionResponse(response=output, mode=mode, scaffold_level=verify_action)

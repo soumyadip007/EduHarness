@@ -5,6 +5,7 @@ from fastapi import APIRouter
 
 from eduharness.agent.executor import AgentExecutor, ExecutorInput
 from eduharness.agent.llm_client import LLMClient, ModelConfig
+from eduharness.agent.tools.code_runner import run_python_code
 from eduharness.agent.tools.course_retriever import CourseRetriever
 from eduharness.audit.trace_logger import TraceLogger
 from eduharness.session.manager import SessionManager
@@ -22,6 +23,17 @@ class MessageRequest(BaseModel):
 class MessageResponse(BaseModel):
     response: str
     mode: str
+    scaffold_level: str = "none"
+
+
+class CodeRunRequest(BaseModel):
+    code: str
+
+
+class CodeRunResponse(BaseModel):
+    stdout: str
+    stderr: str
+    return_code: int
 
 
 _client = LLMClient(ModelConfig(provider="openai", model_id="gpt-4o-mini"))
@@ -39,7 +51,13 @@ def send_message(payload: MessageRequest) -> MessageResponse:
         student_input=payload.message,
         mode=payload.mode,
     )
-    return MessageResponse(response=out.response, mode=out.mode)
+    return MessageResponse(response=out.response, mode=out.mode, scaffold_level=out.scaffold_level)
+
+
+@router.post("/run-code", response_model=CodeRunResponse)
+def run_code(payload: CodeRunRequest) -> CodeRunResponse:
+    result = run_python_code(payload.code)
+    return CodeRunResponse(stdout=result.stdout, stderr=result.stderr, return_code=result.return_code)
 
 
 @router.get("/sessions")

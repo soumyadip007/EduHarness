@@ -3,9 +3,9 @@
 import { useState } from "react";
 import { postJson } from "@/lib/api";
 
-type Message = { role: "student" | "tutor"; text: string };
+type Message = { role: "student" | "tutor"; text: string; scaffoldLevel?: string };
 
-type MessageResp = { response: string; mode: string };
+type MessageResp = { response: string; mode: string; scaffold_level?: string };
 
 export function useChat(initialMode: string = "H0") {
   const [messages, setMessages] = useState<Message[]>([]);
@@ -15,7 +15,7 @@ export function useChat(initialMode: string = "H0") {
 
   const send = async (sessionId: string, text: string) => {
     if (!text.trim()) return;
-    setMessages((prev) => [...prev, { role: "student", text }]);
+      setMessages((prev) => [...prev, { role: "student", text }]);
     setLoading(true);
     try {
       const data = await postJson<MessageResp>("/api/student/message", {
@@ -24,7 +24,10 @@ export function useChat(initialMode: string = "H0") {
         message: text,
         mode,
       });
-      setMessages((prev) => [...prev, { role: "tutor", text: data.response }]);
+      setMessages((prev) => [
+        ...prev,
+        { role: "tutor", text: data.response, scaffoldLevel: data.scaffold_level ?? "none" },
+      ]);
       setTurn((t) => t + 1);
     } finally {
       setLoading(false);
