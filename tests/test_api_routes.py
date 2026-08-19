@@ -86,3 +86,15 @@ def test_teacher_queue_action_changes_queue_and_audit() -> None:
 
     audit_events = c.get("/api/teacher/audit").json()["events"]
     assert any(e["action"] == "approve" for e in audit_events)
+
+
+def test_researcher_endpoints() -> None:
+    c = TestClient(app)
+    assert c.get("/api/researcher/experiments/status").status_code == 200
+    run_resp = c.post("/api/researcher/experiments/run", json={"name": "phase6_full", "seed": 42})
+    assert run_resp.status_code == 200
+    assert c.get("/api/researcher/results/latest").status_code == 200
+    assert c.get("/api/researcher/results/table").status_code == 200
+    assert c.get("/api/researcher/traces").status_code == 200
+    assert c.get("/api/researcher/costs").status_code == 200
+    assert c.post("/api/researcher/export").status_code == 200

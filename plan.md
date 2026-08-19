@@ -1732,17 +1732,17 @@ EduHarness/
 - [x] Verify: escalation triggers → teacher notified → teacher acts → harness behavior changes
 
 **Phase 6 — researcher console**
-- [ ] Write `api/researcher/routes.py` — all researcher endpoints
-- [ ] Write `frontend/src/components/experiment/ExperimentForm.tsx`
-- [ ] Write `frontend/src/components/experiment/ProgressTracker.tsx`
-- [ ] Write `frontend/src/components/experiment/ResultsTable.tsx`
-- [ ] Write `frontend/src/components/charts/LearningCurve.tsx`
-- [ ] Write `frontend/src/components/charts/AblationBar.tsx`
-- [ ] Write `frontend/src/components/charts/InteractionPlot.tsx`
-- [ ] Write `frontend/src/components/charts/CostChart.tsx`
-- [ ] Write `frontend/src/app/researcher/page.tsx` — experiment runner
-- [ ] Write `frontend/src/app/researcher/traces/page.tsx` — trace explorer
-- [ ] Write `frontend/src/app/researcher/results/page.tsx` — results dashboard
-- [ ] Write `frontend/src/app/researcher/annotate/page.tsx` — annotation tool
-- [ ] Write `frontend/src/app/researcher/costs/page.tsx` — cost monitor
-- [ ] Verify: launch experiment → monitor progress → view results → export
+- [x] Write `api/researcher/routes.py` — all researcher endpoints
+- [x] Write `frontend/src/components/experiment/ExperimentForm.tsx`
+- [x] Write `frontend/src/components/experiment/ProgressTracker.tsx`
+- [x] Write `frontend/src/components/experiment/ResultsTable.tsx`
+- [x] Write `frontend/src/components/charts/LearningCurve.tsx`
+- [x] Write `frontend/src/components/charts/AblationBar.tsx`
+- [x] Write `frontend/src/components/charts/InteractionPlot.tsx`
+- [x] Write `frontend/src/components/charts/CostChart.tsx`
+- [x] Write `frontend/src/app/researcher/page.tsx` — experiment runner
+- [x] Write `frontend/src/app/researcher/traces/page.tsx` — trace explorer
+- [x] Write `frontend/src/app/researcher/results/page.tsx` — results dashboard
+- [x] Write `frontend/src/app/researcher/annotate/page.tsx` — annotation tool
+- [x] Write `frontend/src/app/researcher/costs/page.tsx` — cost monitor
+- [x] Verify: launch experiment → monitor progress → view results → export
