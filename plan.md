@@ -1181,46 +1181,46 @@ class TraceRecord:
 ### Phase 5 — H3 Teacher Governance (Months 25–28)
 
 **Escalation queue**
-- [ ] Write `eduharness/govern/escalation_queue.py` — push/pop with priority
-- [ ] Write `eduharness/govern/evidence_packet.py` — build review snapshot
-- [ ] Write `tests/test_govern/test_escalation_queue.py`
+- [x] Write `eduharness/govern/escalation_queue.py` — push/pop with priority
+- [x] Write `eduharness/govern/evidence_packet.py` — build review snapshot
+- [x] Write `tests/test_govern/test_escalation_queue.py`
 
 **Patch pipeline**
-- [ ] Write `eduharness/govern/patch_pipeline.py`
-  - [ ] Teacher actions: approve / rewrite / freeze_topic / patch_rule
-  - [ ] Validate patch (no contradictions)
-- [ ] Write `eduharness/govern/patch_log.py` — immutable append-only log
-- [ ] Write `tests/test_govern/test_patch_pipeline.py`
+- [x] Write `eduharness/govern/patch_pipeline.py`
+  - [x] Teacher actions: approve / rewrite / freeze_topic / patch_rule
+  - [x] Validate patch (no contradictions)
+- [x] Write `eduharness/govern/patch_log.py` — immutable append-only log
+- [x] Write `tests/test_govern/test_patch_pipeline.py`
 
 **Fallback mode**
-- [ ] Write `eduharness/govern/fallback.py` — strict verify-only when teacher absent
-- [ ] Write `tests/test_govern/test_fallback.py`
+- [x] Write `eduharness/govern/fallback.py` — strict verify-only when teacher absent
+- [x] Write `tests/test_govern/test_fallback.py`
 
 **Teacher dashboard**
-- [ ] Write `eduharness/govern/dashboard/app.py` — entry point
-- [ ] Build review queue page
-- [ ] Build evidence viewer page
-- [ ] Build action buttons (approve / rewrite / freeze / patch)
-- [ ] Build patch editor (edit contract or memory override)
-- [ ] Build audit trail page
+- [x] Write `eduharness/govern/dashboard/app.py` — entry point
+- [x] Build review queue page
+- [x] Build evidence viewer page
+- [x] Build action buttons (approve / rewrite / freeze / patch)
+- [x] Build patch editor (edit contract or memory override)
+- [x] Build audit trail page
 - [ ] Basic CSS/templates
 
 **Partial factorial condition**
-- [ ] Update `harness_config.py` — H0+G wiring (agent + govern only)
-- [ ] Verify H0+G runs independently
+- [x] Update `harness_config.py` — H0+G wiring (agent + govern only)
+- [x] Verify H0+G runs independently
 
 **Session manager update (H3)**
-- [ ] Update `harness_config.py` — H3 wiring (full harness)
-- [ ] Update `manager.py` — escalation check, fallback logic
+- [x] Update `harness_config.py` — H3 wiring (full harness)
+- [x] Update `manager.py` — escalation check, fallback logic
 
 **E4 experiment**
-- [ ] Write `evaluation/e4_governance_load.py` — governance stress test
-- [ ] Write `evaluation/metrics/governance_metrics.py` — intervention rate, patch latency
+- [x] Write `evaluation/e4_governance_load.py` — governance stress test
+- [x] Write `evaluation/metrics/governance_metrics.py` — intervention rate, patch latency
 - [ ] Run E4: H2 vs H3, all model tiers
 - [ ] Run E5: two teacher contracts on same stream
 
 **Integration test**
-- [ ] Write `tests/integration/test_h3_govern.py` — escalation → review → patch → behavior change
+- [x] Write `tests/integration/test_h3_govern.py` — escalation → review → patch → behavior change
 
 ---
 
