@@ -1679,17 +1679,17 @@ EduHarness/
 > Add to the Phase-wise checkboxes in Section 19.
 
 **Phase 2 — add to H0 (basic student chat)**
-- [ ] Set up `frontend/` with Next.js + TypeScript + Tailwind + shadcn/ui
-- [ ] Write `api/main.py` — FastAPI app with CORS
-- [ ] Write `api/auth/` — JWT login (student / teacher / researcher roles)
-- [ ] Write `api/student/routes.py` — POST `/api/student/message`
+- [x] Set up `frontend/` with Next.js + TypeScript + Tailwind + shadcn/ui
+- [x] Write `api/main.py` — FastAPI app with CORS
+- [x] Write `api/auth/` — JWT login (student / teacher / researcher roles)
+- [x] Write `api/student/routes.py` — POST `/api/student/message`
 - [ ] Write `api/student/websocket.py` — `/ws/chat` streaming handler
-- [ ] Write `frontend/src/components/chat/ChatPanel.tsx`
-- [ ] Write `frontend/src/components/chat/MessageBubble.tsx`
-- [ ] Write `frontend/src/components/chat/ChatInput.tsx`
-- [ ] Write `frontend/src/hooks/useChat.ts` — WebSocket hook
-- [ ] Write `frontend/src/app/student/page.tsx` — student chat page
-- [ ] Write `frontend/src/app/page.tsx` — login page
+- [x] Write `frontend/src/components/chat/ChatPanel.tsx`
+- [x] Write `frontend/src/components/chat/MessageBubble.tsx`
+- [x] Write `frontend/src/components/chat/ChatInput.tsx`
+- [x] Write `frontend/src/hooks/useChat.ts` — WebSocket hook
+- [x] Write `frontend/src/app/student/page.tsx` — student chat page
+- [x] Write `frontend/src/app/page.tsx` — login page
 - [ ] Update `docker-compose.yml` — add frontend + api services
 - [ ] Verify end-to-end: login → chat → tutor responds → trace logged
 
@@ -1707,7 +1707,7 @@ EduHarness/
 - [ ] Write `frontend/src/components/mastery/MasteryBar.tsx` — concept progress bar
 - [ ] Write `frontend/src/hooks/useMastery.ts`
 - [ ] Write `frontend/src/app/student/progress/page.tsx` — concept map + mastery page
-- [ ] Write `frontend/src/app/student/sessions/page.tsx` — session history list
+- [x] Write `frontend/src/app/student/sessions/page.tsx` — session history list
 - [ ] Add concept map sidebar to student chat page
 - [ ] Verify: mastery updates after each turn → sidebar reflects changes
 
