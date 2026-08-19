@@ -69,3 +69,20 @@ def test_teacher_endpoints() -> None:
     assert c.get("/api/teacher/audit").status_code == 200
     assert c.get("/api/teacher/contract").status_code == 200
     assert c.get("/api/teacher/reports/summary").status_code == 200
+
+
+def test_teacher_queue_action_changes_queue_and_audit() -> None:
+    c = TestClient(app)
+    created = c.post("/api/teacher/queue/simulate")
+    assert created.status_code == 200
+    item_id = created.json()["escalation_id"]
+
+    acted = c.post(f"/api/teacher/queue/{item_id}/action", json={"action": "approve", "teacher_id": "teacher-test"})
+    assert acted.status_code == 200
+    assert acted.json()["applied"] is True
+
+    queue = c.get("/api/teacher/queue").json()["items"]
+    assert all(i["escalation_id"] != item_id for i in queue)
+
+    audit_events = c.get("/api/teacher/audit").json()["events"]
+    assert any(e["action"] == "approve" for e in audit_events)

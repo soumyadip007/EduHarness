@@ -1721,7 +1721,7 @@ EduHarness/
 - [x] Write `frontend/src/components/governance/ActionButtons.tsx`
 - [x] Write `frontend/src/components/governance/PolicyEditor.tsx` — YAML editor
 - [x] Write `frontend/src/components/governance/AuditTimeline.tsx`
-- [ ] Write `frontend/src/components/mastery/MasteryHeatmap.tsx` — class-wide view
+- [x] Write `frontend/src/components/mastery/MasteryHeatmap.tsx` — class-wide view
 - [x] Write `frontend/src/app/teacher/page.tsx` — review queue
 - [x] Write `frontend/src/app/teacher/queue/[id]/page.tsx` — evidence viewer
 - [x] Write `frontend/src/app/teacher/students/page.tsx` — class overview
@@ -1729,7 +1729,7 @@ EduHarness/
 - [x] Write `frontend/src/app/teacher/audit/page.tsx` — audit trail
 - [x] Write `frontend/src/app/teacher/policy/page.tsx` — policy editor
 - [x] Write `frontend/src/app/teacher/reports/page.tsx` — aggregated reports
-- [ ] Verify: escalation triggers → teacher notified → teacher acts → harness behavior changes
+- [x] Verify: escalation triggers → teacher notified → teacher acts → harness behavior changes
 
 **Phase 6 — researcher console**
 - [ ] Write `api/researcher/routes.py` — all researcher endpoints

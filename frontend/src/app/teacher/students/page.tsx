@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { getJson } from "@/lib/api";
+import MasteryHeatmap from "@/components/mastery/MasteryHeatmap";
 
 type Student = { id: string; risk: string; sessions: number };
 
@@ -19,6 +20,12 @@ export default function TeacherStudentsPage() {
           <li key={s.id}>{s.id} — risk: {s.risk}, sessions: {s.sessions}</li>
         ))}
       </ul>
+      <MasteryHeatmap
+        rows={[
+          { studentId: "student-demo-session", mastery: { variables: 0.72, loops: 0.52, functions: 0.41 } },
+          { studentId: "s1", mastery: { variables: 0.81, loops: 0.76, functions: 0.66 } },
+        ]}
+      />
     </main>
   );
 }
