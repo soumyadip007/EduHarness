@@ -1,0 +1,36 @@
+site_name: EduHarness User Guide
+site_description: End-to-end guide for the EduHarness pedagogical harness platform
+site_author: Souchowd
+repo_name: EduHarness
+
+theme:
+  name: material
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - content.code.copy
+    - search.highlight
+    - search.suggest
+
+nav:
+  - Home: index.md
+  - System Guide:
+      - Overview: user-guide/system-overview.md
+      - How It Works: user-guide/how-it-works.md
+      - Setup & Run: user-guide/setup-and-run.md
+      - Model Configuration: user-guide/configure-models.md
+      - Frontend Guide: user-guide/frontend-guide.md
+      - Improvement Roadmap: user-guide/improvement-roadmap.md
+  - Technical Specs:
+      - Architecture: architecture.md
+      - Contract Spec: contract_spec.md
+      - Learner State Spec: learner_state_spec.md
+      - Escalation Protocol: escalation_protocol.md
+      - Trace Spec: trace_spec.md
+      - Simulated Learner Spec: simulated_learner_spec.md
+  - Pilot:
+      - IRB Draft: pilot/irb_ethics_application_draft.md
+      - Pre/Post Test: pilot/pre_post_test_python_module.md
+      - Student Feedback: pilot/student_feedback_questionnaire.md
+      - Teacher Workload: pilot/teacher_workload_survey.md
+      - Execution Protocol: pilot/pilot_execution_protocol.md
