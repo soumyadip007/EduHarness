@@ -28,4 +28,4 @@ class TraceRecord:
     turn_number: int
     intent_label: str
     verify_action: str
-    timestamp: datetime = field(default_factory=datetime.utcnow)
+    timestamp: datetime = field(default_factory=lambda: datetime.now(UTC))

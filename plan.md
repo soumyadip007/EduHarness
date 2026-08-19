@@ -1067,44 +1067,44 @@ class TraceRecord:
 ### Phase 3 — H1 Verification Gate (Months 13–16)
 
 **Intent classifier**
-- [ ] Write `eduharness/verify/intent_classifier.py`
-  - [ ] LLM-based classification (prompt template + lightweight model)
-  - [ ] Rule-based fallback (regex patterns for known SHAPE attacks)
-  - [ ] Return `IntentLabel` + `adversarial_score`
-- [ ] Write `eduharness/verify/adversarial_detector.py` — detect known attack patterns
-- [ ] Write `tests/test_verify/test_intent_classifier.py`
+- [x] Write `eduharness/verify/intent_classifier.py`
+  - [x] LLM-based classification (prompt template + lightweight model)
+  - [x] Rule-based fallback (regex patterns for known SHAPE attacks)
+  - [x] Return `IntentLabel` + `adversarial_score`
+- [x] Write `eduharness/verify/adversarial_detector.py` — detect known attack patterns
+- [x] Write `tests/test_verify/test_intent_classifier.py`
 
 **Mastery estimator**
-- [ ] Write `eduharness/verify/mastery_check.py`
-  - [ ] Read learner state (or init empty for H1-only)
-  - [ ] BKT update from dialogue evidence
-  - [ ] Check prerequisites against concept map
-  - [ ] Return `MasterySnapshot`
-- [ ] Write `tests/test_verify/test_mastery_check.py`
+- [x] Write `eduharness/verify/mastery_check.py`
+  - [x] Read learner state (or init empty for H1-only)
+  - [x] BKT update from dialogue evidence
+  - [x] Check prerequisites against concept map
+  - [x] Return `MasterySnapshot`
+- [x] Write `tests/test_verify/test_mastery_check.py`
 
 **Contract engine**
-- [ ] Write `eduharness/verify/contract_engine.py`
-  - [ ] Load contract YAML per session
-  - [ ] Evaluate rules: (intent, mastery, assessment_mode) → VerifyDecision
-  - [ ] Support scaffold tiers
-- [ ] Write `tests/test_verify/test_contract_engine.py`
+- [x] Write `eduharness/verify/contract_engine.py`
+  - [x] Load contract YAML per session
+  - [x] Evaluate rules: (intent, mastery, assessment_mode) → VerifyDecision
+  - [x] Support scaffold tiers
+- [x] Write `tests/test_verify/test_contract_engine.py`
 
 **Verification gate (router)**
-- [ ] Write `eduharness/verify/verification_gate.py`
-  - [ ] Orchestrate: intent → mastery → contract → VerifyDecision
-  - [ ] Generate constraints string for agent
-- [ ] Write `tests/test_verify/test_verification_gate.py`
+- [x] Write `eduharness/verify/verification_gate.py`
+  - [x] Orchestrate: intent → mastery → contract → VerifyDecision
+  - [x] Generate constraints string for agent
+- [x] Write `tests/test_verify/test_verification_gate.py`
 
 **Post-check**
-- [ ] Write `eduharness/verify/post_check.py`
-  - [ ] Verify output matches VerifyDecision
-  - [ ] Regex + lightweight LLM judge for ambiguous cases
-  - [ ] Return: pass | rewrite | block | flag
-- [ ] Write `tests/test_verify/test_post_check.py`
+- [x] Write `eduharness/verify/post_check.py`
+  - [x] Verify output matches VerifyDecision
+  - [x] Regex + lightweight LLM judge for ambiguous cases
+  - [x] Return: pass | rewrite | block | flag
+- [x] Write `tests/test_verify/test_post_check.py`
 
 **Session manager update (H1)**
-- [ ] Update `harness_config.py` — H1 wiring (agent + verify)
-- [ ] Update `manager.py` — insert verify before agent, post-check after
+- [x] Update `harness_config.py` — H1 wiring (agent + verify)
+- [x] Update `manager.py` — insert verify before agent, post-check after
 - [ ] Measure latency overhead per component → document
 
 **E1 experiment**
@@ -1113,7 +1113,7 @@ class TraceRecord:
 - [ ] Write comparison table
 
 **Integration test**
-- [ ] Write `tests/integration/test_h1_verify.py` — adversarial input → verify blocks leak
+- [x] Write `tests/integration/test_h1_verify.py` — adversarial input → verify blocks leak
 
 ---
 
