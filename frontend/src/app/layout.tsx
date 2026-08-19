@@ -1,9 +1,15 @@
 import type { ReactNode } from "react";
+import AppShell from "@/components/layout/AppShell";
+import AppThemeProvider from "@/components/layout/AppThemeProvider";
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
-      <body style={{ fontFamily: "Arial, sans-serif", margin: 0 }}>{children}</body>
+      <body>
+        <AppThemeProvider>
+          <AppShell>{children}</AppShell>
+        </AppThemeProvider>
+      </body>
     </html>
   );
 }

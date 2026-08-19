@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { Box, Card, CardContent, Typography } from "@mui/material";
 import CostChart from "@/components/charts/CostChart";
 import { getJson } from "@/lib/api";
 
@@ -21,9 +22,13 @@ export default function ResearcherCostsPage() {
   }, []);
 
   return (
-    <main style={{ maxWidth: 980, margin: "0 auto", padding: 24 }}>
-      <h1>Cost Monitor</h1>
-      <CostChart rows={rows.length ? rows : [{ condition: "H0", usd: 0 }]} />
-    </main>
+    <Box sx={{ display: "grid", gap: 2 }}>
+      <Typography variant="h4">Cost Monitor</Typography>
+      <Card elevation={0} sx={{ border: "1px solid", borderColor: "divider" }}>
+        <CardContent>
+          <CostChart rows={rows.length ? rows : [{ condition: "H0", usd: 0 }]} />
+        </CardContent>
+      </Card>
+    </Box>
   );
 }
