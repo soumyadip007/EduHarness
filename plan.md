@@ -1233,13 +1233,13 @@ class TraceRecord:
 - [ ] Run E6: human annotation of 200 traces
 
 **Analysis scripts**
-- [ ] Write `evaluation/metrics/tti.py` — TTI composite with configurable weights
-- [ ] Write `evaluation/analysis/ablation_tables.py` — LaTeX-ready tables
-- [ ] Write `evaluation/analysis/factorial_analysis.py` — ANOVA, interaction plots
-- [ ] Write `evaluation/analysis/learning_curves.py` — per-day plots
-- [ ] Write `evaluation/analysis/cost_analysis.py` — tokens + USD per condition
-- [ ] Write `evaluation/analysis/sensitivity.py` — TTI weight sensitivity
-- [ ] Write `scripts/export_results.py` — export to LaTeX
+- [x] Write `evaluation/metrics/tti.py` — TTI composite with configurable weights
+- [x] Write `evaluation/analysis/ablation_tables.py` — LaTeX-ready tables
+- [x] Write `evaluation/analysis/factorial_analysis.py` — ANOVA, interaction plots
+- [x] Write `evaluation/analysis/learning_curves.py` — per-day plots
+- [x] Write `evaluation/analysis/cost_analysis.py` — tokens + USD per condition
+- [x] Write `evaluation/analysis/sensitivity.py` — TTI weight sensitivity
+- [x] Write `scripts/export_results.py` — export to LaTeX
 
 **Compute and report**
 - [ ] Compute all harness metrics for every condition
@@ -1249,7 +1249,7 @@ class TraceRecord:
 - [ ] Write comprehensive result summary
 
 **Integration test**
-- [ ] Write `tests/integration/test_full_session.py` — full H3 end-to-end
+- [x] Write `tests/integration/test_full_session.py` — full H3 end-to-end
 
 ---
 
@@ -1268,7 +1268,7 @@ class TraceRecord:
 
 ---
 
-### Phase 8 — Thesis Writing (Months 33–42)
+### Phase 8 — Thesis Writing (Months 33–42) - No writting right now Skip this 
 
 - [ ] Write Chapter 1: Introduction
 - [ ] Write Chapter 2: Theoretical Framework & Related Work
