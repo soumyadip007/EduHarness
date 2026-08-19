@@ -1120,61 +1120,61 @@ class TraceRecord:
 ### Phase 4 — H2 Durable Memory (Months 16–20)
 
 **Database schema and migrations**
-- [ ] Write `eduharness/memory/schema.py` — SQLAlchemy models
-  - [ ] `LearnerState` table
-  - [ ] `TeacherOverride` table
-  - [ ] `SessionSummary` table
-  - [ ] `ProvenanceLog` table
+- [x] Write `eduharness/memory/schema.py` — SQLAlchemy models
+  - [x] `LearnerState` table
+  - [x] `TeacherOverride` table
+  - [x] `SessionSummary` table
+  - [x] `ProvenanceLog` table
 - [ ] Set up Alembic migrations (`eduharness/memory/migrations/`)
-- [ ] Write `scripts/setup_db.py` — create tables, seed concept map
-- [ ] Write `tests/test_memory/test_schema.py`
+- [x] Write `scripts/setup_db.py` — create tables, seed concept map
+- [x] Write `tests/test_memory/test_schema.py`
 
 **Memory read**
-- [ ] Write `eduharness/memory/memory_read.py`
-  - [ ] Load state for student_id at session start
-  - [ ] Format for agent context injection
-- [ ] Write `tests/test_memory/test_memory_read.py`
+- [x] Write `eduharness/memory/memory_read.py`
+  - [x] Load state for student_id at session start
+  - [x] Format for agent context injection
+- [x] Write `tests/test_memory/test_memory_read.py`
 
 **Memory write**
-- [ ] Write `eduharness/memory/memory_write.py`
-  - [ ] Extract mastery evidence from dialogue
-  - [ ] Update BKT mastery, log scaffolds, record misconceptions
-  - [ ] Write provenance entry
-- [ ] Write `tests/test_memory/test_memory_write.py`
+- [x] Write `eduharness/memory/memory_write.py`
+  - [x] Extract mastery evidence from dialogue
+  - [x] Update BKT mastery, log scaffolds, record misconceptions
+  - [x] Write provenance entry
+- [x] Write `tests/test_memory/test_memory_write.py`
 
 **Compaction**
-- [ ] Write `eduharness/memory/compaction.py`
-  - [ ] Summarize sessions older than N days
-  - [ ] Protect: teacher overrides, active misconceptions, constraints
-- [ ] Write `tests/test_memory/test_compaction.py`
+- [x] Write `eduharness/memory/compaction.py`
+  - [x] Summarize sessions older than N days
+  - [x] Protect: teacher overrides, active misconceptions, constraints
+- [x] Write `tests/test_memory/test_compaction.py`
 
 **Drift detection**
-- [ ] Write `eduharness/memory/drift_detection.py`
-  - [ ] Compare inferred vs observed mastery each turn
-  - [ ] Flag if divergence > threshold
-- [ ] Write `tests/test_memory/test_drift_detection.py`
+- [x] Write `eduharness/memory/drift_detection.py`
+  - [x] Compare inferred vs observed mastery each turn
+  - [x] Flag if divergence > threshold
+- [x] Write `tests/test_memory/test_drift_detection.py`
 
 **Partial factorial condition**
-- [ ] Update `harness_config.py` — H0+M wiring (agent + memory, no verify)
-- [ ] Verify H0+M runs independently
+- [x] Update `harness_config.py` — H0+M wiring (agent + memory, no verify)
+- [x] Verify H0+M runs independently
 
 **Session manager update (H2)**
-- [ ] Update `harness_config.py` — H2 wiring (agent + verify + memory)
-- [ ] Update `manager.py` — memory_read at start, memory_write after turn
+- [x] Update `harness_config.py` — H2 wiring (agent + verify + memory)
+- [x] Update `manager.py` — memory_read at start, memory_write after turn
 
 **E2, E3, E5 experiments**
-- [ ] Write `evaluation/e2_extended_tutoring.py` — multi-day sim runner
-- [ ] Write `evaluation/metrics/educlaw_metrics.py` — Delta Solve, plateau day
-- [ ] Write `evaluation/metrics/longtutor_metrics.py` — MR, Macro-F1, History Utilization
-- [ ] Write `evaluation/metrics/harness_metrics.py` — state divergence, contradiction rate
-- [ ] Write `evaluation/e3_history_teaching.py` — LongTutor-style offline tasks
-- [ ] Write `evaluation/e5_partial_factorial.py` — isolation comparison
+- [x] Write `evaluation/e2_extended_tutoring.py` — multi-day sim runner
+- [x] Write `evaluation/metrics/educlaw_metrics.py` — Delta Solve, plateau day
+- [x] Write `evaluation/metrics/longtutor_metrics.py` — MR, Macro-F1, History Utilization
+- [x] Write `evaluation/metrics/harness_metrics.py` — state divergence, contradiction rate
+- [x] Write `evaluation/e3_history_teaching.py` — LongTutor-style offline tasks
+- [x] Write `evaluation/e5_partial_factorial.py` — isolation comparison
 - [ ] Run E2-short: H0 vs H1 vs H2 over 14 sessions, 2 models
 - [ ] Run E3: H0 vs H2 on offline tasks
 - [ ] Run E5-partial: H0 vs H0+M vs H1 vs H2
 
 **Integration test**
-- [ ] Write `tests/integration/test_h2_memory.py` — multi-session state persistence
+- [x] Write `tests/integration/test_h2_memory.py` — multi-session state persistence
 
 ---
 

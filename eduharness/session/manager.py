@@ -5,6 +5,9 @@ from dataclasses import dataclass
 from eduharness.agent.executor import AgentExecutor, ExecutorInput
 from eduharness.audit.trace_logger import TraceLogger
 from eduharness.audit.trace_schema import TraceRecord
+from eduharness.memory.memory_read import format_state_for_context, load_state
+from eduharness.memory.memory_write import persist_turn
+from eduharness.memory.schema import build_session_factory
 from eduharness.session.harness_config import get_harness_config
 from eduharness.verify.post_check import post_check_output
 from eduharness.verify.verification_gate import run_verification
@@ -20,6 +23,15 @@ class SessionManager:
     def __init__(self, executor: AgentExecutor, trace_logger: TraceLogger) -> None:
         self.executor = executor
         self.trace_logger = trace_logger
+        self.session_factory = build_session_factory("sqlite:///eduharness.db")
+
+    @staticmethod
+    def _infer_concept(text: str) -> str:
+        t = text.lower()
+        for concept in ("variables", "conditionals", "loops", "functions", "lists"):
+            if concept in t:
+                return concept
+        return "loops"
 
     def handle_message(self, session_id: str, turn_number: int, student_input: str, mode: str = "H0") -> SessionResponse:
         cfg = get_harness_config(mode)
@@ -29,6 +41,11 @@ class SessionManager:
         adv_score = 0.0
         mastery_snapshot: dict[str, float] = {}
         constraints = ""
+        memory_update: dict = {}
+
+        if cfg.enable_memory:
+            state = load_state(self.session_factory, student_id=session_id, course_id="cs101_python")
+            constraints += "\n\nLearner state:\n" + format_state_for_context(state)
 
         if cfg.enable_verify:
             vr = run_verification(
@@ -46,6 +63,19 @@ class SessionManager:
 
         output = self.executor.run(ExecutorInput(student_input=student_input, constraints=constraints))
         post_result = post_check_output(verify_action, output) if cfg.enable_verify else "pass"
+
+        if cfg.enable_memory:
+            concept = self._infer_concept(student_input)
+            memory_update = persist_turn(
+                self.session_factory,
+                student_id=session_id,
+                course_id="cs101_python",
+                concept=concept,
+                student_input=student_input,
+                agent_output=output,
+                scaffold_level=verify_action if verify_action != "none" else "hint_L1",
+            )
+
         self.trace_logger.log(
             TraceRecord(
                 trace_id=f"{session_id}-{turn_number}",
@@ -59,9 +89,9 @@ class SessionManager:
                 contract_rule_fired=verify_reason or None,
                 agent_output=output,
                 post_check_result=post_result,
-                memory_update={},
+                memory_update=memory_update,
                 escalation_triggered=False,
-                layer_label="verify" if cfg.enable_verify else "agent",
+                layer_label="memory" if cfg.enable_memory else ("verify" if cfg.enable_verify else "agent"),
                 latency_ms={},
                 tokens_used={},
             )
