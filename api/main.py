@@ -4,6 +4,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 from api.auth.routes import router as auth_router
+from api.teacher.websocket import router as teacher_ws_router
 from api.student.routes import router as student_router
 from api.teacher.routes import router as teacher_router
 from api.researcher.routes import router as researcher_router
@@ -28,3 +29,4 @@ app.include_router(auth_router)
 app.include_router(student_router)
 app.include_router(teacher_router)
 app.include_router(researcher_router)
+app.include_router(teacher_ws_router)

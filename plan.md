@@ -1692,6 +1692,7 @@ EduHarness/
 - [x] Write `frontend/src/app/page.tsx` — login page
 - [x] Update `docker-compose.yml` — add frontend + api services
 - [ ] Verify end-to-end: login → chat → tutor responds → trace logged
+  - [x] API route tests added and passing; chat-to-trace flow verified via backend tests
 
 **Phase 3 — add to H1 (scaffold visibility + code sandbox)**
 - [x] Write `frontend/src/components/chat/ScaffoldBadge.tsx` — show scaffold tier
@@ -1709,25 +1710,25 @@ EduHarness/
 - [x] Write `frontend/src/app/student/progress/page.tsx` — concept map + mastery page
 - [x] Write `frontend/src/app/student/sessions/page.tsx` — session history list
 - [x] Add concept map sidebar to student chat page
-- [ ] Verify: mastery updates after each turn → sidebar reflects changes
+- [x] Verify: mastery updates after each turn → sidebar reflects changes
 
 **Phase 5 — add to H3 (full teacher dashboard)**
-- [ ] Write `api/teacher/routes.py` — all teacher endpoints (queue, students, audit, contract, reports)
-- [ ] Write `api/teacher/websocket.py` — `/ws/escalation` handler
-- [ ] Write `frontend/src/hooks/useEscalation.ts` — WebSocket hook
-- [ ] Write `frontend/src/components/governance/EscalationCard.tsx`
-- [ ] Write `frontend/src/components/governance/EvidenceViewer.tsx`
-- [ ] Write `frontend/src/components/governance/ActionButtons.tsx`
-- [ ] Write `frontend/src/components/governance/PolicyEditor.tsx` — YAML editor
-- [ ] Write `frontend/src/components/governance/AuditTimeline.tsx`
+- [x] Write `api/teacher/routes.py` — all teacher endpoints (queue, students, audit, contract, reports)
+- [x] Write `api/teacher/websocket.py` — `/ws/escalation` handler
+- [x] Write `frontend/src/hooks/useEscalation.ts` — WebSocket hook
+- [x] Write `frontend/src/components/governance/EscalationCard.tsx`
+- [x] Write `frontend/src/components/governance/EvidenceViewer.tsx`
+- [x] Write `frontend/src/components/governance/ActionButtons.tsx`
+- [x] Write `frontend/src/components/governance/PolicyEditor.tsx` — YAML editor
+- [x] Write `frontend/src/components/governance/AuditTimeline.tsx`
 - [ ] Write `frontend/src/components/mastery/MasteryHeatmap.tsx` — class-wide view
-- [ ] Write `frontend/src/app/teacher/page.tsx` — review queue
-- [ ] Write `frontend/src/app/teacher/queue/[id]/page.tsx` — evidence viewer
-- [ ] Write `frontend/src/app/teacher/students/page.tsx` — class overview
-- [ ] Write `frontend/src/app/teacher/students/[id]/page.tsx` — student detail
-- [ ] Write `frontend/src/app/teacher/audit/page.tsx` — audit trail
-- [ ] Write `frontend/src/app/teacher/policy/page.tsx` — policy editor
-- [ ] Write `frontend/src/app/teacher/reports/page.tsx` — aggregated reports
+- [x] Write `frontend/src/app/teacher/page.tsx` — review queue
+- [x] Write `frontend/src/app/teacher/queue/[id]/page.tsx` — evidence viewer
+- [x] Write `frontend/src/app/teacher/students/page.tsx` — class overview
+- [x] Write `frontend/src/app/teacher/students/[id]/page.tsx` — student detail
+- [x] Write `frontend/src/app/teacher/audit/page.tsx` — audit trail
+- [x] Write `frontend/src/app/teacher/policy/page.tsx` — policy editor
+- [x] Write `frontend/src/app/teacher/reports/page.tsx` — aggregated reports
 - [ ] Verify: escalation triggers → teacher notified → teacher acts → harness behavior changes
 
 **Phase 6 — researcher console**

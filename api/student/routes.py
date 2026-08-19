@@ -8,6 +8,7 @@ from eduharness.agent.llm_client import LLMClient, ModelConfig
 from eduharness.agent.tools.code_runner import run_python_code
 from eduharness.agent.tools.course_retriever import CourseRetriever
 from eduharness.audit.trace_logger import TraceLogger
+from eduharness.memory.memory_read import load_state
 from eduharness.session.manager import SessionManager
 
 router = APIRouter(prefix="/api/student", tags=["student"])
@@ -66,7 +67,10 @@ def list_sessions() -> dict:
 
 
 @router.get("/mastery")
-def get_mastery() -> dict:
+def get_mastery(session_id: str = "student-demo-session") -> dict:
+    state = load_state(_manager.session_factory, student_id=session_id, course_id="cs101_python")
+    if state.mastery:
+        return {"mastery": state.mastery}
     return {
         "mastery": {
             "variables": 0.7,

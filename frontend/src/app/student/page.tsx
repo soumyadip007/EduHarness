@@ -10,7 +10,7 @@ import { useMastery } from "@/hooks/useMastery";
 export default function StudentPage() {
   const sessionId = useMemo(() => "student-demo-session", []);
   const { messages, send, loading, mode, setMode } = useChat("H2");
-  const { mastery } = useMastery();
+  const { mastery, refresh } = useMastery();
 
   return (
     <main style={{ maxWidth: 1080, margin: "0 auto", padding: 24 }}>
@@ -36,7 +36,13 @@ export default function StudentPage() {
         <div>
           <ChatPanel messages={messages} />
           <div style={{ marginTop: 12 }}>
-            <ChatInput onSend={(text) => send(sessionId, text)} disabled={loading} />
+            <ChatInput
+              onSend={async (text) => {
+                await send(sessionId, text);
+                await refresh(sessionId);
+              }}
+              disabled={loading}
+            />
           </div>
           {loading ? <p style={{ color: "#666" }}>Tutor is thinking...</p> : null}
           <CodeSandbox />
@@ -46,14 +52,14 @@ export default function StudentPage() {
           <p style={{ margin: 0, color: "#555" }}>Assessment mode controls scaffolding strictness.</p>
           <h4 style={{ marginBottom: 8 }}>Mastery Snapshot</h4>
           <ul style={{ margin: 0, paddingLeft: 18 }}>
-            {Object.entries(mastery).map(([k, v]) => (
+            {Object.entries(mastery as Record<string, number>).map(([k, v]) => (
               <li key={k}>
                 {k}: {Math.round(v * 100)}%
               </li>
             ))}
           </ul>
           <div style={{ marginTop: 10 }}>
-            <a href=\"/student/progress\">Open full progress page</a>
+            <a href="/student/progress">Open full progress page</a>
           </div>
         </aside>
       </div>

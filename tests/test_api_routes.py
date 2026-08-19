@@ -46,3 +46,26 @@ def test_student_run_code() -> None:
     data = r.json()
     assert data["return_code"] == 0
     assert "15" in data["stdout"]
+
+
+def test_mastery_updates_after_h2_turn() -> None:
+    c = TestClient(app)
+    session_id = "mastery-check-session"
+    c.post(
+        "/api/student/message",
+        json={"session_id": session_id, "turn_number": 1, "message": "help with loops", "mode": "H2"},
+    )
+    r = c.get(f"/api/student/mastery?session_id={session_id}")
+    assert r.status_code == 200
+    mastery = r.json().get("mastery", {})
+    assert isinstance(mastery, dict)
+    assert "loops" in mastery
+
+
+def test_teacher_endpoints() -> None:
+    c = TestClient(app)
+    assert c.get("/api/teacher/queue").status_code == 200
+    assert c.get("/api/teacher/students").status_code == 200
+    assert c.get("/api/teacher/audit").status_code == 200
+    assert c.get("/api/teacher/contract").status_code == 200
+    assert c.get("/api/teacher/reports/summary").status_code == 200
