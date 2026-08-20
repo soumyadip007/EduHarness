@@ -19,9 +19,15 @@ export default function TeacherQueueDetail({ params }: { params: { id: string } 
       <EvidenceViewer payload={payload} />
       <div style={{ marginTop: 10 }}>
         <ActionButtons
-          onAction={async (action) => {
-            const r = await postJson<Record<string, unknown>>(`/api/teacher/queue/${params.id}/action`, { action });
-            setStatus(JSON.stringify(r));
+          escalationId={params.id}
+          onAction={async (payloadAction) => {
+            const r = await postJson<Record<string, unknown>>(`/api/teacher/queue/${params.id}/action`, {
+              action: payloadAction.action,
+              teacher_id: payloadAction.teacher_id,
+              rationale: payloadAction.rationale,
+              rewrite_text: payloadAction.rewrite_text,
+            });
+            setStatus(JSON.stringify(r, null, 2));
           }}
         />
       </div>

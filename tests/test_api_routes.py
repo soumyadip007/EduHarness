@@ -88,6 +88,44 @@ def test_teacher_queue_action_changes_queue_and_audit() -> None:
     assert any(e["action"] == "approve" for e in audit_events)
 
 
+def test_config_models() -> None:
+    c = TestClient(app)
+    r = c.get("/api/config/models")
+    assert r.status_code == 200
+    data = r.json()
+    assert "models" in data
+    assert "active_model_key" in data
+
+
+def test_student_questions_and_progress_plan() -> None:
+    c = TestClient(app)
+    session_id = "questions-test-session"
+    c.post(
+        "/api/student/message",
+        json={"session_id": session_id, "turn_number": 1, "message": "help with loops", "mode": "H2"},
+    )
+    q = c.get(f"/api/student/questions?session_id={session_id}&count=2")
+    assert q.status_code == 200
+    assert "questions" in q.json()
+    p = c.get(f"/api/student/progress-plan?session_id={session_id}")
+    assert p.status_code == 200
+    assert "plan" in p.json()
+
+
+def test_teacher_mastery_heatmap() -> None:
+    c = TestClient(app)
+    r = c.get("/api/teacher/students/mastery-heatmap")
+    assert r.status_code == 200
+    assert "rows" in r.json()
+
+
+def test_researcher_stats_and_learning_curve() -> None:
+    c = TestClient(app)
+    assert c.get("/api/researcher/results/stats").status_code == 200
+    assert c.get("/api/researcher/results/learning-curve").status_code == 200
+    assert c.get("/api/researcher/results/compare").status_code == 200
+
+
 def test_researcher_endpoints() -> None:
     c = TestClient(app)
     assert c.get("/api/researcher/experiments/status").status_code == 200

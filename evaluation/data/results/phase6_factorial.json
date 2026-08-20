@@ -1,0 +1,24 @@
+{
+  "cells": [
+    {
+      "model": "mid_primary",
+      "harness": "H0",
+      "tti": 0.6483
+    },
+    {
+      "model": "mid_primary",
+      "harness": "H1",
+      "tti": 0.7483
+    },
+    {
+      "model": "mid_primary",
+      "harness": "H2",
+      "tti": 0.8298
+    },
+    {
+      "model": "mid_primary",
+      "harness": "H3",
+      "tti": 0.9074
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "run_id": "run-6155fa62a25c",
+  "name": "phase6_full",
+  "seed": 42,
+  "model_keys": [
+    "mid_primary"
+  ],
+  "harness_levels": [
+    "H0",
+    "H1",
+    "H2",
+    "H3"
+  ],
+  "data_hash": "039bd27d02b00c0e",
+  "config_hash": "759456f001036a8a",
+  "status": "running",
+  "results_path": null,
+  "created_at": "2026-08-20T11:46:30.804899"
+}

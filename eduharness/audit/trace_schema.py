@@ -20,6 +20,9 @@ class TraceRecord:
     layer_label: str
     latency_ms: dict[str, int]
     tokens_used: dict[str, int]
+    model_key: str = ""
+    model_id: str = ""
+    model_provider: str = ""
     timestamp: datetime = field(default_factory=lambda: datetime.now(UTC))
 
     def to_dict(self) -> dict:

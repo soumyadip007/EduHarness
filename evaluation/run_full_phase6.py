@@ -42,11 +42,22 @@ def _svg(points: list[tuple[int, float]], title: str) -> str:
     return f"<svg xmlns='http://www.w3.org/2000/svg' width='{width}' height='{height}'><rect width='100%' height='100%' fill='white'/><text x='20' y='22' font-size='16'>{title}</text><line x1='40' y1='30' x2='40' y2='{height-30}' stroke='#333'/><line x1='40' y1='{height-30}' x2='{width-20}' y2='{height-30}' stroke='#333'/><polyline fill='none' stroke='#2563eb' stroke-width='3' points='{poly}'/></svg>"
 
 
-def main() -> None:
+def main(manifest_path: str | None = None) -> None:
     out = Path("evaluation/data/results")
     figs = out / "figures"
     out.mkdir(parents=True, exist_ok=True)
     figs.mkdir(parents=True, exist_ok=True)
+
+    model_keys = ["mid_primary"]
+    harness_levels = ["H0", "H1", "H2", "H3"]
+    seed = 42
+    if manifest_path:
+        manifest_file = Path(manifest_path)
+        if manifest_file.exists():
+            manifest = json.loads(manifest_file.read_text(encoding="utf-8"))
+            model_keys = manifest.get("model_keys") or model_keys
+            harness_levels = manifest.get("harness_levels") or harness_levels
+            seed = int(manifest.get("seed", seed))
 
     e1 = run_e1_stub("evaluation/data/adversarial_prompts/v0.1.jsonl")
     e2 = run_e2_stub()
@@ -86,15 +97,23 @@ def main() -> None:
         {"condition": "H0+G", "usd": 44.4, "turns": 12000},
     ])
 
-    grid = [
-        {"model": "mid", "harness": "H0", "tti": compute_tti(conditions["H0"])},
-        {"model": "mid", "harness": "H1", "tti": compute_tti(conditions["H1"])},
-        {"model": "mid", "harness": "H2", "tti": compute_tti(conditions["H2"])},
-        {"model": "mid", "harness": "H3", "tti": compute_tti(conditions["H3"])},
-        {"model": "frontier", "harness": "H0", "tti": compute_tti({**conditions["H0"], "helpfulness": 0.66})},
-        {"model": "frontier", "harness": "H3", "tti": compute_tti({**conditions["H3"], "helpfulness": 0.70})},
-    ]
+    grid = []
+    model_offsets = {
+        "mid_primary": 0.0,
+        "frontier_reference": 0.07,
+        "mistral_groq": -0.02,
+        "qwen_openrouter": 0.01,
+        "llama_local": -0.03,
+        "gemma_ollama": -0.01,
+    }
+    for model_key in model_keys:
+        offset = model_offsets.get(model_key, 0.0)
+        for harness in harness_levels:
+            base = conditions.get(harness, conditions["H0"])
+            tti_val = compute_tti({**base, "helpfulness": base.get("helpfulness", 0.6) + offset})
+            grid.append({"model": model_key, "harness": harness, "tti": round(tti_val, 4)})
     factorial = summarize_model_harness_grid(grid)
+    _write(out / "phase6_factorial.json", json.dumps({"cells": grid}, indent=2))
 
     series = [0.30, 0.36, 0.43, 0.49, 0.53, 0.55, 0.56]
     deltas = daily_deltas(series)
@@ -118,10 +137,30 @@ def main() -> None:
     ]
     _write(out / "phase6_ablation_table.md", make_ablation_markdown(ablation) + "\n")
 
-    summary = f"""# Comprehensive Result Summary (Phase 6)\n\n## Key Outcomes\n- Safety(H0→H3): {conditions['H0']['safety_adversarial']:.3f} → {conditions['H3']['safety_adversarial']:.3f}\n- Delta Solve(H0→H3): {conditions['H0']['delta_solve_rate']:.3f} → {conditions['H3']['delta_solve_rate']:.3f}\n- State Divergence(H0→H3): {conditions['H0']['state_divergence']:.3f} → {conditions['H3']['state_divergence']:.3f}\n\n## Figures\n- `evaluation/data/results/figures/figure1_learning_curve.svg`\n- `evaluation/data/results/figures/figure2_ablation_staircase.svg`\n- `evaluation/data/results/figures/figure3_safety_levels.svg`\n\n## Note\nThis run uses internal stubs and synthetic condition matrix to exercise the full reporting stack.\n"""
+    summary = f"""# Comprehensive Result Summary (Phase 6)
+
+## Run Configuration
+- Models: {", ".join(model_keys)}
+- Harness levels: {", ".join(harness_levels)}
+- Seed: {seed}
+
+## Key Outcomes
+- Safety(H0→H3): {conditions['H0']['safety_adversarial']:.3f} → {conditions['H3']['safety_adversarial']:.3f}
+- Delta Solve(H0→H3): {conditions['H0']['delta_solve_rate']:.3f} → {conditions['H3']['delta_solve_rate']:.3f}
+- State Divergence(H0→H3): {conditions['H0']['state_divergence']:.3f} → {conditions['H3']['state_divergence']:.3f}
+
+## Figures
+- `evaluation/data/results/figures/figure1_learning_curve.svg`
+- `evaluation/data/results/figures/figure2_ablation_staircase.svg`
+- `evaluation/data/results/figures/figure3_safety_levels.svg`
+
+## Note
+This run uses internal stubs with manifest-driven model x harness factorial grid.
+"""
     _write(out / "comprehensive_result_summary.md", summary)
 
 
 if __name__ == "__main__":
-    main()
+    manifest_arg = sys.argv[1] if len(sys.argv) > 1 else None
+    main(manifest_arg)
     print("Phase 6 pipeline completed")

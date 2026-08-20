@@ -18,11 +18,14 @@ def apply_teacher_action(
     patch_log: PatchLog,
     rewrite_text: str | None = None,
     patch_rule: dict | None = None,
+    rationale: str | None = None,
 ) -> dict:
     if action not in ALLOWED_ACTIONS:
         raise ValueError(f"Unsupported action: {action}")
 
     result = {"action": action, "escalation_id": escalation_id, "teacher_id": teacher_id, "applied": True}
+    if rationale:
+        result["rationale"] = rationale
 
     if action == "rewrite":
         result["rewrite_text"] = rewrite_text or ""
